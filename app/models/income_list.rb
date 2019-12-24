@@ -1,0 +1,2 @@
+class IncomeList < ApplicationRecord
+end
