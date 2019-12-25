@@ -1,0 +1,2 @@
+class SpendList < ApplicationRecord
+end

@@ -1,15 +1,22 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
   <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
     <title>BS</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+     <%# %script{ src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"}/  %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
-
   <body>
+    <% if user_signed_in? %>
+      <%= link_to "登録", new_event_path, class: "header__right--btn" %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__right--btn" %>
+    <% else %>
+      <%= link_to "ログイン", new_user_session_path, class: "header__right--btn" %>
+      <%= link_to "新規登録", new_user_registration_path, class: "header__right--btn" %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
