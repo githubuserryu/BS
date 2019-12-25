@@ -19,10 +19,9 @@
 
 $(document).ready(function(){
   $('#calendar').fullCalendar({
-    // full calendarをカスタマイズする際にここにオプションを記述する。
-    height: window.innerHeight - 300,
+    height: window.innerHeight - 250, 
     windowResize: function () { 
-      $('#calendar').fullCalendar('option', 'height', window.innerHeight - 500);
+      $('#calendar').fullCalendar('option', 'height', window.innerHeight - 250);
     }
   });
 })

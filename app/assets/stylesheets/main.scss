@@ -1,3 +1,4 @@
+$futer-size: 30px;
 .main {
   height: 100%;
   width: 100%;
@@ -27,17 +28,62 @@
       margin-left:auto;
     }
   }
-  // calc(100vh - 100px - 200px);
-  .fc-unthemed{
-    height: 500px;
-    width: 100vw;
-    padding: 20px;
-    background-color: blue;
-  }
-
   &__futer{
     height: 200px;
     width: 100vw;
     background-color: green;
+    display: flex;
+    justify-content: space-around;
+    &__send{
+      height: 150px;
+      width: 300px;
+      background-color: white;
+      margin-top: 20px;
+      p{
+        font-size: $futer-size;
+        text-align:center;
+      }
+      &--sum1{
+        height: 80px;
+        width: 250px;
+        background-color: yellow;
+        display: block;
+        margin-left: 20px;
+      }
+    }
+    &__income{
+      height: 150px;
+      width: 300px;
+      background-color: white;
+      margin-top: 20px;
+      p{
+        font-size: $futer-size;
+        text-align:center;
+      }
+      &--sum2{
+        height: 80px;
+        width: 250px;
+        background-color: yellow;
+        display: block;
+        margin-left: 20px;
+      }
+    }
+    &__month{
+      height: 150px;
+      width: 300px;
+      background-color: white;
+      margin-top: 20px;
+      p{
+        font-size: $futer-size;
+        text-align:center;
+      }
+      &--sum3{
+        height: 80px;
+        width: 250px;
+        background-color: yellow;
+        display: block;
+        margin-left: 20px;
+      }
+    }
   }
 }
