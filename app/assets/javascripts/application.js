@@ -17,11 +17,11 @@
 //= require fullcalendar
 //= require_tree .
 
-$(document).ready(function(){
-  $('#calendar').fullCalendar({
-    height: window.innerHeight - 250, 
-    windowResize: function () { 
-      $('#calendar').fullCalendar('option', 'height', window.innerHeight - 250);
-    }
-  });
-})
+// $(document).ready(function(){
+//   $('#calendar').fullCalendar({
+//     height: window.innerHeight - 250, 
+//     windowResize: function () { 
+//       $('#calendar').fullCalendar('option', 'height', window.innerHeight - 250);
+//     }
+//   });
+// })

@@ -1,3 +1,4 @@
 class SpendList < ApplicationRecord
-  # validates :title, :content, presence: true
+  belongs_to :month, optional: true
+  validates :spend, :day, presence: true
 end

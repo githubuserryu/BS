@@ -8,15 +8,6 @@ $futer-size: 30px;
     width: 100vw;
     background-color: red;
     display: flex;
-    .header__right--btn{
-      height: 40px;
-      width: 100px;
-      font-size: 20px;
-      margin-top: 5px;
-      margin-left: 20px;
-      background-color: purple;
-      display: block;
-    }
     &--register{
       height: 40px;
       width: 100px;
@@ -27,6 +18,40 @@ $futer-size: 30px;
       font-size: 20px;
       margin-left:auto;
     }
+    .header__right--btn{
+      height: 40px;
+      width: 100px;
+      font-size: 20px;
+      margin-top: 5px;
+      margin-left: 20px;
+      background-color: purple;
+      display: block;
+    }
+  }
+  &__main{
+    height: calc(100vh - 50px - 200px);
+    width: 100vw;
+    background-color: grey;
+    overflow : auto ;
+    &__month{
+      display: flex;
+    }
+    &__show{
+      display: flex;
+      &__income{
+        height: calc(100vh - 50px - 200px - 50px);
+        width: 45%;
+        background-color: white;
+        margin-right: 5px;
+        overflow : auto ;
+      }
+      &__spend{
+        height: calc(100vh - 50px - 200px - 50px);
+        width: 45%;
+        background-color: white;
+        overflow : auto ;
+      }
+    }
   }
   &__futer{
     height: 200px;
@@ -34,23 +59,6 @@ $futer-size: 30px;
     background-color: green;
     display: flex;
     justify-content: space-around;
-    &__send{
-      height: 150px;
-      width: 300px;
-      background-color: white;
-      margin-top: 20px;
-      p{
-        font-size: $futer-size;
-        text-align:center;
-      }
-      &--sum1{
-        height: 80px;
-        width: 250px;
-        background-color: yellow;
-        display: block;
-        margin-left: 20px;
-      }
-    }
     &__income{
       height: 150px;
       width: 300px;
@@ -60,7 +68,24 @@ $futer-size: 30px;
         font-size: $futer-size;
         text-align:center;
       }
-      &--sum2{
+      &--sum{
+        height: 80px;
+        width: 250px;
+        background-color: yellow;
+        display: block;
+        margin-left: 20px;
+      }
+    }
+    &__spend{
+      height: 150px;
+      width: 300px;
+      background-color: white;
+      margin-top: 20px;
+      p{
+        font-size: $futer-size;
+        text-align:center;
+      }
+      &--sum{
         height: 80px;
         width: 250px;
         background-color: yellow;
@@ -77,7 +102,7 @@ $futer-size: 30px;
         font-size: $futer-size;
         text-align:center;
       }
-      &--sum3{
+      &--sum{
         height: 80px;
         width: 250px;
         background-color: yellow;

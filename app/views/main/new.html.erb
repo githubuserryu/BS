@@ -6,7 +6,7 @@
   <div class="register__income">
     <%= form_with(model: @income , local: true, url: "/main", method: :post) do |form| %>
       <%=form.text_field :income, placeholder: :金額, class: :income__price%>
-      <%=form.text_field :day, placeholder: :日付, class: :income__day %>
+      <%=form.date_field :day, class: :income__day %>
       <%=form.text_field :content, placeholder: :収入源, class: :income__income %>
       <%=form.submit '登録', class: :income__send %>
     <% end %>
@@ -15,7 +15,7 @@
   <div class="register__spend">
     <%= form_with(model: @spend, local: true, url: "/main",method: :post) do |form| %>
       <%=form.text_field :spend, placeholder: :金額, class: :spend__price%>
-      <%=form.text_field :day, placeholder: :日付, class: :spend__day %> 
+      <%=form.date_field :day, class: :spend__day %>
       <%=form.text_field :use, placeholder: :使い道, class: :spend__use %>
       <%=form.submit '登録', class: :spend__send %> 
     <% end %>
