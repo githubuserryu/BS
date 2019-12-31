@@ -14,11 +14,18 @@
   
   <div class="main__main">
     <div class="main__main__month">
-      <div class="main__main__back">
+      <div class="main__main__month__back">
         先月
       </div>
+      <div class="main__main__month__year">
+      </div>
       <div class="main__main__month__to">
-      ○月
+      <%# <script>
+        var today = new Date();
+        var i = 1
+        var tomanth = (today.getFullYear(),(today.getMonth()+i));
+        document.write(tomanth);
+      </script> %>
       </div>
       <div class="main__main__month__next">
       次月
