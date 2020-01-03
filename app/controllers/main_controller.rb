@@ -2,9 +2,12 @@ class MainController < ApplicationController
   def index
     @income = IncomeList.group("MONTH(day)").sum(:income)
     @spend = SpendList.group("MONTH(day)").sum(:spend)
-    @incomes = IncomeList.all
+    y = 2019
+    m = 12
+    d = "#{y}-#{m}-15"
+    @incomes = IncomeList.where(day: d.in_time_zone.all_month).group(:content).sum(:income)
+    @spends = SpendList.where(day: d.in_time_zone.all_month).group(:use).sum(:spend)
   end
-  # day = Date.today
 
   def new
     @income = IncomeList.new
@@ -21,7 +24,7 @@ class MainController < ApplicationController
   end
 
   def show
-    # @income = IncomeList.all
+    @income = IncomeList.group("MONTH(day)",:content).sum(:income)
   end
   # find(params[:id])
 

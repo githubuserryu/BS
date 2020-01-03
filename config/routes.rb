@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   #   root :to => "devise/sessions#new"
   # end
   root "main#index"
-  resources :main, only: [:index, :new, :create,]
+  resources :main, only: [:index, :new, :create, :show]
   resources :events, only: [:index, :show, :new, :update, :destroy]
   resources :income, only: :index
 end

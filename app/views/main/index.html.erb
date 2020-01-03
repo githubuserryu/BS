@@ -20,12 +20,6 @@
       <div class="main__main__month__year">
       </div>
       <div class="main__main__month__to">
-      <%# <script>
-        var today = new Date();
-        var i = 1
-        var tomanth = (today.getFullYear(),(today.getMonth()+i));
-        document.write(tomanth);
-      </script> %>
       </div>
       <div class="main__main__month__next">
       次月
@@ -35,21 +29,24 @@
     <div class="main__main__show">
       <div class="main__main__show__income">
         収入
-      <% @incomes.each do |i|%>
-      <div class="i">
-        <%= i.income %> 
+        <% @incomes.each do |i|%>
+        <div class="i">
+          <% i.each do |a|%>
+            <%= a%>
+          <% end %>
+        </div>
+        <%end %>
       </div>
-      <div class="i">
-        <%= i.day %> 
-      </div>
-      <div class="i">
-        <%= i.content %> 
-      </div>
-    <%end %>
 
+    <div class="main__main__show__spend">
+      支出
+      <% @spends.each do |i|%>
+      <div class="i">
+        <% i.each do |a|%>
+          <%= a%>
+        <% end %>
       </div>
-      <div class="main__main__show__spend">
-        支出
+      <%end %>
       </div>
     </div>
   </div>
@@ -57,16 +54,17 @@
   <div class="main__futer">
     <div class="main__futer__income">
       <p>収入</p>  
-      <%= link_to @income[12], "/main/", class:"main__futer__income--sum"%>
-                             <%# ↑#{@incoem} %>
+      <div class="main__main__income--sum">
+        <%= @income[12]%>
+      </div>
     </div>
     <div class="main__futer__spend">
       <p>支出</p> 
       <%= link_to @spend[12], "/main/", class:"main__futer__spend--sum"%>
     </div>
     <div class="main__futer__month">
-      <p>月 合計</p>
-      <% month = Month.new%>
+      <p>月 差額</p>
+      <% month = Month.new %>
       <%= link_to month.month_sum, "/main/", class:"main__futer__month--sum"%>
     </div>
   </div>
