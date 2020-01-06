@@ -1,18 +1,22 @@
 <div class="show">
   <div class="show__heder">
-  <%=link_to "戻る" , "/" , class:"back"%>
+  <%=link_to "戻る" , "/main" , class:"back"%>
   </div>
 
   <div class="show__income">
     <% @income.each do |income|%>
-      <%= income%>
+      <%= income.day%>
+      <%= income.content%>
+      <%= income.income%>
     <% end %>
   </div>
 
-  <%# <div class="show__spend"> %>
-    <%# <% @spend.each do |spend|%> %>
-      <%# <%= spend%> %>
-    <%# <% end %> %>
-  <%# </div> %>
+  <div class="show__spend">
+    <% @spend.each do |spend| %>
+      <%= spend.day%>
+      <%= spend.use %>
+      <%= spend.spend%>
+    <% end %>
+  </div>
 
 </div>

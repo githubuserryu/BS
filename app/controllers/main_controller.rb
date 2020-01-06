@@ -1,12 +1,16 @@
 class MainController < ApplicationController
+  $y = 2019
+  $m = 12
+
   def index
-    @income = IncomeList.group("MONTH(day)").sum(:income)
-    @spend = SpendList.group("MONTH(day)").sum(:spend)
-    y = 2019
-    m = 12
-    d = "#{y}-#{m}-15"
-    @incomes = IncomeList.where(day: d.in_time_zone.all_month).group(:content).sum(:income)
-    @spends = SpendList.where(day: d.in_time_zone.all_month).group(:use).sum(:spend)
+    @income = IncomeList.where(day: "#{$y}-#{$m}-15".in_time_zone.all_month).sum(:income)
+    @spend = SpendList.where(day: "#{$y}-#{$m}-15".in_time_zone.all_month).sum(:spend)
+    @incomes = IncomeList.where(day: "#{$y}-#{$m}-15".in_time_zone.all_month).group(:content).sum(:income)
+    @spends = SpendList.where(day: "#{$y}-#{$m}-15".in_time_zone.all_month).group(:use).sum(:spend)
+    respond_to do |format|
+      format.html 
+      format.json
+    end
   end
 
   def new
@@ -24,8 +28,8 @@ class MainController < ApplicationController
   end
 
   def show
-    @income = IncomeList.group("MONTH(day)",:content).sum(:income)
-    # @spend = SpendList.group("MONTH(day)",:use).sum(:spend)
+    @income = IncomeList.where(day: "#{$y}-#{$m}-15".in_time_zone.all_month).all
+    @spend = SpendList.where(day: "#{$y}-#{$m}-15".in_time_zone.all_month).all
   end
   # find(params[:id])
 

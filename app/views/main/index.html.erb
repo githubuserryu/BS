@@ -29,10 +29,11 @@
     <div class="main__main__show">
       <div class="main__main__show__income">
         収入
-        <% @incomes.each do |i|%>
+        <input class="incomesss" name="incomessss" type="hidden" value=<%=@incomes%>>
+        <% @incomes.each do |i| %>
         <div class="i">
-          <% i.each do |a|%>
-          <%= link_to a, "/main/show", class:"main__main__show__income--content"%>
+          <% i.each do |a| %>
+          <%= link_to a, "/main/show", class:"main__main__show__income--content" %>
           <% end %>
         </div>
         <%end %>
@@ -55,17 +56,17 @@
     <div class="main__futer__income">
       <p>収入</p>  
       <div class="main__main__income--sum">
-        <%= @income[12]%>
+        <%= @income%>
       </div>
     </div>
     <div class="main__futer__spend">
       <p>支出</p> 
-      <%= link_to @spend[12], "/main/", class:"main__futer__spend--sum"%>
+      <%= @spend%>
     </div>
     <div class="main__futer__month">
       <p>月 差額</p>
       <% month = Month.new %>
-      <%= link_to month.month_sum, "/main/", class:"main__futer__month--sum"%>
+      <%= month.month_sum%>
     </div>
   </div>
 </div>
