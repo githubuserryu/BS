@@ -25,6 +25,7 @@ class MainController < ApplicationController
 
   def show
     @income = IncomeList.group("MONTH(day)",:content).sum(:income)
+    # @spend = SpendList.group("MONTH(day)",:use).sum(:spend)
   end
   # find(params[:id])
 

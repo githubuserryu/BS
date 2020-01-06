@@ -1,13 +1,18 @@
-<div class="details">
-  <div class="details__month">
+<div class="show">
+  <div class="show__heder">
+  <%=link_to "戻る" , "/" , class:"back"%>
   </div>
-  <div class="details__main">
-    <div class="details__main__heder">
-    </div>
-    <div class="details__main__content">
+
+  <div class="show__income">
     <% @income.each do |income|%>
       <%= income%>
     <% end %>
-    </div>
   </div>
+
+  <%# <div class="show__spend"> %>
+    <%# <% @spend.each do |spend|%> %>
+      <%# <%= spend%> %>
+    <%# <% end %> %>
+  <%# </div> %>
+
 </div>

@@ -32,7 +32,7 @@
         <% @incomes.each do |i|%>
         <div class="i">
           <% i.each do |a|%>
-            <%= a%>
+          <%= link_to a, "/main/show", class:"main__main__show__income--content"%>
           <% end %>
         </div>
         <%end %>
@@ -43,7 +43,7 @@
       <% @spends.each do |i|%>
       <div class="i">
         <% i.each do |a|%>
-          <%= a%>
+         <%= link_to a, "/main/show", class:"main__main__show__spend--content"%>
         <% end %>
       </div>
       <%end %>
