@@ -65,12 +65,11 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'kaminari'
-gem 'devise'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 # カレンダー
 gem 'fullcalendar-rails' 
 gem 'momentjs-rails'
 gem 'jquery-rails'
 gem 'compass-rails', '3.1.0'
 gem 'sprockets', '3.7.2'
-# 変数の引き渡し
-gem 'gon'
