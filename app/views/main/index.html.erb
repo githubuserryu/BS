@@ -1,0 +1,121 @@
+<div class="main">
+
+  <div class="main__header">
+      <% if user_signed_in? %>
+      <%= link_to "さようなら", destroy_user_session_path, method: :delete, class: "header__right--btn" %>
+      <%= link_to "登録", new_main_path, class: "main__header--register" %>
+    <% else %>
+      <%= link_to "ログイン", new_user_session_path, class: "header__right--btn" %>
+      <%= link_to "新規登録", new_user_registration_path, class:"header__right--btn"%>
+    <% end %>
+    </div>
+
+  <%# <div class="calendar" id="calendar"></div> %>
+  
+  <div class="main__main">
+    <div class="main__main__month">
+      <div class="main__main__month__back">
+        
+      </div>
+
+      <%=form_tag '/main',method: :get,class: "year-month" do%>
+      <input type="number" name="example1" list="year" placeholder="年" class="year">
+      <datalist id="year">
+      <option value=2017></option>
+      <option value=2018></option>
+      <option value=2019></option>
+      <option value=2020></option>
+      <option value=2021></option>
+      <option value=2022></option>
+      <option value=2023></option>
+      <option value=2024></option>
+      <option value=2025></option>
+      <option value=2026></option>
+      <option value=2027></option>
+      <option value=2028></option>
+      <option value=2029></option>
+      <option value=2030></option>
+      <option value=2031></option>
+      <option value=2032></option>
+      <option value=2033></option>
+      </datalist>
+
+      <input type="number" name="example2" list="month" placeholder="月" class="month">
+      <datalist id="month">
+      <option value=1></option>
+      <option value=2></option>
+      <option value=3></option>
+      <option value=4></option>
+      <option value=5></option>
+      <option value=6></option>
+      <option value=7></option>
+      <option value=8></option>
+      <option value=9></option>
+      <option value=10></option>
+      <option value=11></option>
+      <option value=12></option>
+      </datalist>
+
+      <%=submit_tag "切替", class: :aaa%>
+      <% end %>
+
+
+      <div class="main__main__month__year">
+      </div>
+      <div class="main__main__month__to">
+      </div>
+      <div class="main__main__month__next">
+        
+      </div>
+    </div>
+
+    <div class="main__main__show">
+      <div class="main__main__show__income">
+        <h1>収入</h1>
+        <% @incomes.each do |i| %>
+        <div class="i">
+          <% i.each do |a| %>
+          <%= link_to a, "/main/show", class:"main__main__show__income--content" %>
+          <% end %>
+        </div>
+        <%end %>
+      </div>
+
+    <div class="main__main__show__spend">
+      <h1>支出</h1>
+      <% @spends.each do |i|%>
+      <div class="i">
+        <% i.each do |a|%>
+         <%= link_to a, "/main/show", class:"main__main__show__spend--content"%>
+        <% end %>
+      </div>
+      <%end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="main__futer">
+    <div class="main__futer__income">
+      <p>収入</p>  
+      <div class="main__futer__income--sum">
+        <%= @income%>
+      </div>
+      <h1>円</h1>
+    </div>
+    <div class="main__futer__spend">
+      <p>支出</p> 
+      <div class="main__futer__spend--sum">
+        <%= @spend%>
+      </div>
+      <h1>円</h1>
+    </div>
+    <div class="main__futer__month">
+      <p>月 差額</p>
+      <div class="main__futer__month--sum">
+        <% month = Month.new %>
+        <%= month.month_sum%>
+      </div>
+      <h1>円</h1>
+    </div>
+  </div>
+</div>

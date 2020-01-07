@@ -1,0 +1,23 @@
+.register{
+  &__income{
+    background-color: whitesmoke;
+    width: 300px;
+    height: 100px;
+    margin-top: 100px;
+    padding-top: 10px;
+    padding-left: 20px;
+    border-top: solid 6px #1dc1d6;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
+
+  }
+  &__spend{
+    background-color: whitesmoke;
+    width: 300px;
+    height: 100px;
+    margin-top: 100px;
+    padding-top: 10px;
+    padding-left: 20px;
+    border-top: solid 6px #1dc1d6;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
+  }
+}
