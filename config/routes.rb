@@ -1,11 +1,3 @@
 Rails.application.routes.draw do
-  devise_for :users
-  devise_scope :user do
-    root :to => "devise/sessions#new"
-  end
-  root "main#index"
-  resources :main, only: [:index, :new, :create, :show]
-  resources :events, only: [:index, :show, :new, :update, :destroy]
-  resources :income, only: :index
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
-

@@ -12,16 +12,5 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require jquery
-//= require moment
-//= require fullcalendar
+//= require turbolinks
 //= require_tree .
-
-// $(document).ready(function(){
-//   $('#calendar').fullCalendar({
-//     height: window.innerHeight - 250, 
-//     windowResize: function () { 
-//       $('#calendar').fullCalendar('option', 'height', window.innerHeight - 250);
-//     }
-//   });
-// })
