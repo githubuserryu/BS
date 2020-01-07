@@ -28,8 +28,8 @@ class MainController < ApplicationController
   end
 
   def show
-    @income = IncomeList.where(day: "#{$y}-#{$m}-01".in_time_zone.all_month).all
-    @spend = SpendList.where(day: "#{$y}-#{$m}-01".in_time_zone.all_month).all
+    @income = IncomeList.where(day: "#{$y}-#{$m}-01".in_time_zone.all_month).all.order(day: "asc")
+    @spend = SpendList.where(day: "#{$y}-#{$m}-01".in_time_zone.all_month).all.order(day: "asc")
   end
   # find(params[:id])
 

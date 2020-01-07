@@ -4,7 +4,7 @@
     <% @income.each do |income|%>
       <%= income.day%>
       <%= income.content%>
-      <%= income.income%>
+      <%= income.income%><br>
     <% end %>
   </div>
 
@@ -12,12 +12,9 @@
     <% @spend.each do |spend| %>
       <%= spend.day%>
       <%= spend.use %>
-      <%= spend.spend%>
+      <%= spend.spend%><br>
     <% end %>
   </div>
-
-  <div class="show__heder">
-  <%=link_to "戻る" , "/main" , class:"back"%>
-  </div>
-
 </div>
+
+<%=link_to "<戻る>" , "/main" , class:"back"%>
