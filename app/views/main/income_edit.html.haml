@@ -1,0 +1,13 @@
+.register
+  .register__heder
+  .register__income
+    = form_with(model: @income , local: true, url: main_show_income_edit_path(@income), method: :patch) do |form|
+      = form.text_field :income, placeholder: :金額, class: :income__price
+      %br/
+      = form.date_field :day, class: :income__day
+      %br/
+      = form.text_field :content, placeholder: :収入源, class: :income__income
+      %br/
+      = form.submit '登録', class: :income__send, method: :patch
+      %br/
+= link_to "戻るe", "/main/show", class: "back"

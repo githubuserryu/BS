@@ -1,0 +1,13 @@
+.register
+  .register__heder
+  .register__spend
+    = form_with(model: @spend, local: true, url: main_show_spend_edit_path(@spend), method: :patch) do |form|
+      = form.text_field :spend, placeholder: :金額, class: :spend__price
+      %br/
+      = form.date_field :day, class: :spend__day
+      %br/
+      = form.text_field :use, placeholder: :使い道, class: :spend__use
+      %br/
+      = form.submit '登録', class: :spend__send, method: :pacth
+      %br/
+= link_to "戻るe", "/main", class: "back"

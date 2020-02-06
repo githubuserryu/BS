@@ -1,0 +1,35 @@
+.show
+  = form_tag '/main/show',method: :get,class: "year-month" do
+    %select.month{list: "month", name: "example2", placeholder: "月", type: "number"}/
+    %datalist#month
+      %option{value: 0} 今月
+      %option{value: -1} 先月
+      %option{value: -2} 先々月
+      %option{value: -3} 3ヶ月前
+      %option{value: -4} 4ヶ月前
+      %option{value: -5} 5ヶ月前
+      %option{value: -6} 6ヶ月前
+      %option{value: -7} 7ヶ月前
+      %option{value: -8} 8ヶ月前
+      %option{value: -9} 9ヶ月前
+      %option{value: -10} 10ヶ月前
+      %option{value: -11} 11ヶ月前
+      %option{value: -12} 一年前
+    = submit_tag "切替", class: :aaa
+  .show__income
+    - @income.each do |income|
+      = income.day
+      = income.content
+      = income.income
+      = link_to "編集", main_show_income_edit_path(income)
+      = link_to "削除", main_show_income_destroy_path(income), method: :delete
+      %br/
+  .show__spend
+    - @spend.each do |spend|
+      = spend.day
+      = spend.use
+      = spend.spend
+      = link_to "編集", main_show_spend_edit_path(spend)
+      = link_to "削除", main_show_spend_destroy_path(spend), method: :delete
+      %br/
+= link_to "<戻る>" , "/main" , class:"back"
