@@ -7,7 +7,9 @@
       %br/
       = form.date_field :day, class: :income__day
       %br/
-      = form.text_field :content, placeholder: :収入源, class: :income__income
+      = form.select :category, IncomeList.categories.keys, class: :income__income
+      %br/
+      = form.text_field :content, placeholder: :詳細, class: :income__income
       %br/
       = form.submit '登録', class: :income__send
       %br/
@@ -16,6 +18,8 @@
       = form.text_field :spend, placeholder: :金額, class: :spend__price
       %br/
       = form.date_field :day, class: :spend__day
+      %br/
+      = form.select :category, SpendList.categories.keys, class: :income__income
       %br/
       = form.text_field :use, placeholder: :使い道, class: :spend__use
       %br/

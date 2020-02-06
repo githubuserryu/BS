@@ -1,20 +1,20 @@
 class MainController < ApplicationController
+  before_action :current_user_list
 
   def index
-    year_month_definition
-    @income = IncomeList.where(day: "#{$now_y}-#{$now_m}-01".in_time_zone.all_month)
-    @spend = SpendList.where(day: "#{$now_y}-#{$now_m}-01".in_time_zone.all_month)
-    @income_sum = @income.sum(:income)
-    @spend_sum = @spend.sum(:spend)
-    @incomes = @income.group(:content).sum(:income)
-    @spends = @spend.group(:use).sum(:spend)
+    @income = @user_income.where(day: "#{$now_y}-#{$now_m}-01".in_time_zone.all_month)
+    @spend = @user_spend.where(day: "#{$now_y}-#{$now_m}-01".in_time_zone.all_month)
+    $income_sum = @income.sum(:income)
+    $spend_sum = @spend.sum(:spend)
+    @incomes = @income.group(:category).sum(:income)
+    @spends = @spend.group(:category).sum(:spend)
   end
 
   def new
     @income = IncomeList.new
     @spend = SpendList.new
   end
-
+  
   def create
     if params[:income_list]
       IncomeList.create(income_params)
@@ -25,9 +25,8 @@ class MainController < ApplicationController
   end
 
   def show
-    year_month_definition
-    @income = IncomeList.where(day: "#{$now_y}-#{$now_m}-01".in_time_zone.all_month).all.order(day: "asc")
-    @spend = SpendList.where(day: "#{$now_y}-#{$now_m}-01".in_time_zone.all_month).all.order(day: "asc")
+    @income = @user_income.where(day: "#{$now_y}-#{$now_m}-01".in_time_zone.all_month).all.order(category: "asc").order(day: "asc")
+    @spend = @user_spend.where(day: "#{$now_y}-#{$now_m}-01".in_time_zone.all_month).all.order(category: "asc").order(day: "asc")
   end
 
   # 収入の編集削除---------------------------------------------
@@ -66,22 +65,17 @@ class MainController < ApplicationController
 
   private
 
-  def year_month_definition
-    m = params[:example2].to_i
-    $now_y = Time.current.year
-    $now_m = Time.current.month + m
-    unless $now_m > 0
-      $now_y = $now_y -1
-      $now_m = 12 + $now_m
-    end
+  def current_user_list
+    @user_income = IncomeList.where(user_id: current_user.id)
+    @user_spend = SpendList.where(user_id: current_user.id)
   end
 
   def income_params
-    params.require(:income_list).permit(:income, :content, :day)
+    params.require(:income_list).permit(:income, :content, :day, :category).merge(user_id: current_user.id)
   end
 
   def spend_params
-    params.require(:spend_list).permit(:spend, :day, :use)
+    params.require(:spend_list).permit(:spend, :day, :use, :category).merge(user_id: current_user.id)
   end
 end
 

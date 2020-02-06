@@ -47,12 +47,12 @@
     .main__futer__income
       %p 収入
       .main__futer__income--sum
-        = @income_sum.to_s(:delimited, delimiter: ',')
+        = $income_sum.to_s(:delimited, delimiter: ',')
       %h1 円
     .main__futer__spend
       %p 支出
       .main__futer__spend--sum
-        = @spend_sum.to_s(:delimited, delimiter: ',')
+        = $spend_sum.to_s(:delimited, delimiter: ',')
       %h1 円
     .main__futer__month
       %p 月 差額

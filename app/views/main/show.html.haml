@@ -16,9 +16,13 @@
       %option{value: -11} 11ヶ月前
       %option{value: -12} 一年前
     = submit_tag "切替", class: :aaa
+  = $now_m
+  月
   .show__income
     - @income.each do |income|
-      = income.day
+      = income.day.day
+      日
+      = income.category
       = income.content
       = income.income
       = link_to "編集", main_show_income_edit_path(income)
@@ -26,7 +30,8 @@
       %br/
   .show__spend
     - @spend.each do |spend|
-      = spend.day
+      = spend.day.day
+      日
       = spend.use
       = spend.spend
       = link_to "編集", main_show_spend_edit_path(spend)
