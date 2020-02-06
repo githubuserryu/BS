@@ -1,0 +1,62 @@
+.main
+  .main__header
+    - if user_signed_in?
+      = link_to "さようなら", destroy_user_session_path, method: :delete, class: "header__right--btn"
+      .doday-month
+        = $now_y
+        = $now_m
+      = link_to "登録", new_main_path, class: "main__header--register"
+    - else
+      = link_to "ログイン", new_user_session_path, class: "header__right--btn"
+      = link_to "新規登録", new_user_registration_path, class:"header__right--btn"
+  .main__main
+    .main__main__month
+      .main__main__month__back
+      = form_tag '/main',method: :get,class: "year-month" do
+        %select.month{list: "month", name: "example2", placeholder: "月", type: "number"}/
+        %datalist#month
+          %option{value: 0} 今月
+          %option{value: -1} 先月
+          %option{value: -2} 先々月
+          %option{value: -3} 3ヶ月前
+          %option{value: -4} 4ヶ月前
+          %option{value: -5} 5ヶ月前
+          %option{value: -6} 6ヶ月前
+          %option{value: -7} 7ヶ月前
+          %option{value: -8} 8ヶ月前
+          %option{value: -9} 9ヶ月前
+          %option{value: -10} 10ヶ月前
+          %option{value: -11} 11ヶ月前
+          %option{value: -12} 一年前
+        = submit_tag "切替", class: :aaa
+      .main__main__month__year
+      .main__main__month__to
+      .main__main__month__next
+    .main__main__show
+      .main__main__show__income
+        %h1 収入
+        - @incomes.each do |income|
+          = link_to income[0], "/main/show", class:"main__main__show__income--content"
+          = link_to income[1].to_s(:delimited, delimiter: ','), "/main/show", class:"main__main__show__income--content"
+      .main__main__show__spend
+        %h1 支出
+        - @spends.each do |spend|
+          = link_to spend[0], "/main/show", class:"main__main__show__spend--content"
+          = link_to spend[1].to_s(:delimited, delimiter: ','), "/main/show", class:"main__main__show__spend--content"
+  .main__futer
+    .main__futer__income
+      %p 収入
+      .main__futer__income--sum
+        = @income_sum.to_s(:delimited, delimiter: ',')
+      %h1 円
+    .main__futer__spend
+      %p 支出
+      .main__futer__spend--sum
+        = @spend_sum.to_s(:delimited, delimiter: ',')
+      %h1 円
+    .main__futer__month
+      %p 月 差額
+      .main__futer__month--sum
+        - month = Month.new
+        = month.month_sum.to_s(:delimited, delimiter: ',')
+      %h1 円
