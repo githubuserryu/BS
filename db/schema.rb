@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< Updated upstream
 ActiveRecord::Schema.define(version: 2020_02_07_055444) do
+=======
+ActiveRecord::Schema.define(version: 2020_02_06_051959) do
+>>>>>>> Stashed changes
 
   create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -80,8 +84,12 @@ ActiveRecord::Schema.define(version: 2020_02_07_055444) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+<<<<<<< Updated upstream
   add_foreign_key "income_costs", "users"
   add_foreign_key "income_lists", "users"
   add_foreign_key "spend_costs", "users"
+=======
+  add_foreign_key "income_lists", "users"
+>>>>>>> Stashed changes
   add_foreign_key "spend_lists", "users"
 end
