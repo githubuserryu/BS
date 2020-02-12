@@ -1,0 +1,25 @@
+.register
+  .register__heder
+    固定費の登録ができます
+  .register__box
+    .register__box__cost
+      .font
+        収入固定費
+      = form_with(model: @income_cost, local: true, url: "/main/cost_new", method: :post) do |form|
+        = form.text_field :income, placeholder: :金額, class: :select
+        %br/
+        = form.text_field :content, placeholder: :詳細, class: :select
+        %br/
+        = form.submit '登録', class: :select
+        %br/
+    .register__box__cost
+      .font
+        支出固定費
+      = form_with(model: @spend_cost, local: true, url: "/main/cost_new", method: :post) do |form|
+        = form.text_field :spend, placeholder: :金額, class: :select
+        %br/
+        = form.text_field :content, placeholder: :使い道, class: :select
+        %br/
+        = form.submit '登録', class: :select
+        %br/
+= link_to "戻る", "/main", class: "back"

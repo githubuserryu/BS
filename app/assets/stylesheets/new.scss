@@ -1,23 +1,44 @@
 .register{
-  &__income{
-    background-color: whitesmoke;
-    width: 300px;
-    height: 100px;
-    margin-top: 100px;
-    padding-top: 10px;
-    padding-left: 20px;
-    border-top: solid 6px #1dc1d6;
-    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
-
+  height: 700px;
+  width: 700px;
+  margin: 0 auto;
+  &__heder{
+    width: 100%;
+    text-align: center;
+    padding: 30px;
+    font-size: 24px;
   }
-  &__spend{
-    background-color: whitesmoke;
-    width: 300px;
-    height: 100px;
-    margin-top: 100px;
-    padding-top: 10px;
-    padding-left: 20px;
-    border-top: solid 6px #1dc1d6;
-    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
+  
+  &__box{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    .font{
+      font-size: 20px;
+      font-weight: 600;
+      padding: 3px 15px;
+    }
+    &__cost{
+      background-color: whitesmoke;
+      width: 45%;
+      height: 100%;
+      margin: 100px 30px;
+      border-top: solid 6px #1dc1d6;
+      box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
+      .select{
+        width: 200px;
+        height: 30px;
+        margin: 5px auto;
+        display: block;
+        font-weight: 700;
+      }
+      select{
+        width: 200px;
+        height: 30px;
+        margin: 5px auto;
+        display: block;
+        font-weight: 700;
+      }
+    }
   }
 }

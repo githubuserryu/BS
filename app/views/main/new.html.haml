@@ -1,24 +1,32 @@
 .register
   .register__heder
-    %p 収入・支出どちらかに記入して下さい。
-  .register__income
-    = form_with(model: @income , local: true, url: "/main", method: :post) do |form|
-      = form.text_field :income, placeholder: :金額, class: :income__price
-      %br/
-      = form.date_field :day, class: :income__day
-      %br/
-      = form.text_field :content, placeholder: :収入源, class: :income__income
-      %br/
-      = form.submit '登録', class: :income__send
-      %br/
-  .register__spend
-    = form_with(model: @spend, local: true, url: "/main",method: :post) do |form|
-      = form.text_field :spend, placeholder: :金額, class: :spend__price
-      %br/
-      = form.date_field :day, class: :spend__day
-      %br/
-      = form.text_field :use, placeholder: :使い道, class: :spend__use
-      %br/
-      = form.submit '登録', class: :spend__send
-      %br/
+    収入・支出どちらかに記入して下さい。
+  .register__box
+    .register__box__cost
+      .font 収入
+      = form_with(model: @income , local: true, url: "/main", method: :post) do |form|
+        = form.text_field :income, placeholder: :金額, class: :select
+        %br/
+        = form.date_field :day, class: :select
+        %br/
+        = form.select :category, IncomeList.categories.keys, class: :select
+        %br/
+        = form.text_field :content, placeholder: :詳細, class: :select
+        %br/
+        = form.submit '登録', class: :select
+        %br/
+
+    .register__box__cost
+      .font 支出
+      = form_with(model: @spend, local: true, url: "/main",method: :post) do |form|
+        = form.text_field :spend, placeholder: :金額, class: :select
+        %br/
+        = form.date_field :day, class: :select
+        %br/
+        = form.select :category, SpendList.categories.keys, class: :select
+        %br/
+        = form.text_field :use, placeholder: :使い道, class: :select
+        %br/
+        = form.submit '登録', class: :select
+        %br/
 = link_to "戻る", "/main", class: "back"

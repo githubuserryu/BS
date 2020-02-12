@@ -1,16 +1,12 @@
 .register
   .register__heder
-    支出の編集ができます
+    収入固定費の編集ができます
   .register__box
     .register__box__cost
       .font
         編集
-      = form_with(model: @income , local: true, url: main_show_income_edit_path(@income), method: :patch) do |form|
+      = form_with(model: @income_cost , local: true, url: main_show_cost_income_edit_path(@income_cost), method: :patch) do |form|
         = form.text_field :income, placeholder: :金額, class: :select
-        %br/
-        = form.date_field :day, class: :select
-        %br/
-        = form.select :category, IncomeList.categories.keys, class: :select
         %br/
         = form.text_field :content, placeholder: :収入源, class: :select
         %br/
