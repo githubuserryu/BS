@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   end
 
   def year_month_definition
-    m = params[:example2].to_i
+    m = params[:example].to_i
     $now_y = Time.current.year
     $now_m = Time.current.month + m
     unless $now_m > 0

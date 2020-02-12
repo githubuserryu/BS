@@ -1,0 +1,15 @@
+.register
+  .register__heder
+    支出固定費の編集ができます
+  .register__box
+    .register__box__cost
+      .font
+        編集
+      = form_with(model: @spend_cost, local: true, url: main_show_cost_spend_edit_path(@spend_cost), method: :patch) do |form|
+        = form.text_field :spend, placeholder: :金額, class: :select
+        %br/
+        = form.text_field :content, placeholder: :使い道, class: :select
+        %br/
+        = form.submit '登録', class: :select, method: :pacth
+        %br/
+= link_to "戻る", "/main", class: "back"

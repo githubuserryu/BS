@@ -1,6 +1,7 @@
 class SpendList < ApplicationRecord
   belongs_to :month, optional: true
   belongs_to :user
+  
   validates :spend, :day, presence: true
   validates :spend, :user_id, presence: true
 

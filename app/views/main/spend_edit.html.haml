@@ -1,13 +1,19 @@
 .register
   .register__heder
-  .register__spend
-    = form_with(model: @spend, local: true, url: main_show_spend_edit_path(@spend), method: :patch) do |form|
-      = form.text_field :spend, placeholder: :金額, class: :spend__price
-      %br/
-      = form.date_field :day, class: :spend__day
-      %br/
-      = form.text_field :use, placeholder: :使い道, class: :spend__use
-      %br/
-      = form.submit '登録', class: :spend__send, method: :pacth
-      %br/
-= link_to "戻るe", "/main", class: "back"
+    支出の編集ができます
+  .register__box
+    .register__box__cost
+      .font
+        編集
+      = form_with(model: @spend, local: true, url: main_show_spend_edit_path(@spend), method: :patch) do |form|
+        = form.text_field :spend, placeholder: :金額, class: :select
+        %br/
+        = form.date_field :day, class: :select
+        %br/
+        = form.select :category, SpendList.categories.keys, class: :select
+        %br/
+        = form.text_field :use, placeholder: :使い道, class: :select
+        %br/
+        = form.submit '登録', class: :select , method: :pacth
+        %br/
+= link_to "＜戻る＞", "/main", class: "back"

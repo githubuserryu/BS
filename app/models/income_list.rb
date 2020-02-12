@@ -1,6 +1,7 @@
 class IncomeList < ApplicationRecord
   belongs_to :month, optional: true
   belongs_to :user
+  
   validates :income, :day, presence: true
   validates :income, :user_id, presence: true
 

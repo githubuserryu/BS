@@ -1,7 +1,8 @@
 .show
-  = form_tag '/main/show',method: :get,class: "year-month" do
-    %select.month{list: "month", name: "example2", placeholder: "月", type: "number"}/
-    %datalist#month
+  .now #{$now_y}年 #{$now_m}月
+  = form_tag '/main/show',method: :get, id: "year-month" do
+    %select#month-select{list: "month", name: "example", placeholder: "月", type: "number"}/
+    %datalist
       %option{value: 0} 今月
       %option{value: -1} 先月
       %option{value: -2} 先々月
@@ -15,26 +16,46 @@
       %option{value: -10} 10ヶ月前
       %option{value: -11} 11ヶ月前
       %option{value: -12} 一年前
-    = submit_tag "切替", class: :aaa
-  = $now_m
-  月
-  .show__income
-    - @income.each do |income|
-      = income.day.day
-      日
-      = income.category
-      = income.content
-      = income.income
-      = link_to "編集", main_show_income_edit_path(income)
-      = link_to "削除", main_show_income_destroy_path(income), method: :delete
+    = submit_tag "切替", id: :month_tab
+  .show-box
+    .show-box__pieces
+      - @income.each do |income|
+        = income.day.day
+        日
+        = link_to "編集", main_show_income_edit_path(income), class: :edit_delete
+        = link_to "削除", main_show_income_destroy_path(income), class: :edit_delete, method: :delete
+        %br/
+        .category #{income.category}
+        .content #{income.content}
+        .price #{income.income.to_s(:delimited, delimiter: ',')}
+        %br/
+        %br/
+      固定費
       %br/
-  .show__spend
-    - @spend.each do |spend|
-      = spend.day.day
-      日
-      = spend.use
-      = spend.spend
-      = link_to "編集", main_show_spend_edit_path(spend)
-      = link_to "削除", main_show_spend_destroy_path(spend), method: :delete
+      - @income_cost.each do |cost|
+        = cost.content
+        = cost.income.to_s(:delimited, delimiter: ',')
+        = link_to "編集", main_show_cost_income_edit_path(cost), class: :edit_delete
+        = link_to "削除", main_show_cost_income_destroy_path(cost), class: :edit_delete, method: :delete
+        %br/
+    .show-box__pieces
+      - @spend.each do |spend|
+        = spend.day.day
+        日
+        = link_to "編集", main_show_spend_edit_path(spend), class: :edit_delete
+        = link_to "削除", main_show_spend_destroy_path(spend), class: :edit_delete, method: :delete
+        %br/
+        .category #{spend.category}
+        .content #{spend.use}
+        .price #{spend.spend.to_s(:delimited, delimiter: ',')}
+        %br/
+        %br/
+      固定費
+      %br/
+      - @spend_cost.each do |cost|
+        = cost.content
+        = cost.spend.to_s(:delimited, delimiter: ',')
+        = link_to "編集", main_show_cost_spend_edit_path(cost), class: :edit_delete
+        = link_to "削除", main_show_cost_spend_destroy_path(cost), class: :edit_delete, method: :delete
       %br/
 = link_to "<戻る>" , "/main" , class:"back"
