@@ -1,7 +1,7 @@
 .main
   .main__header
     = link_to "閉じる", destroy_user_session_path, method: :delete, class: "header__right--btn"
-    .today-month #{$now_y} 年 #{$now_m} 月
+    .today-month #{$now_y} 年 #{$now_m} 月!
     .header-box
       = link_to "登録", new_main_path, class: "header-box--register"
       = link_to "固定費登録", main_cost_new_path, class: "header-box--register"
