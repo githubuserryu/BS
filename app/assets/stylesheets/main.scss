@@ -92,13 +92,11 @@ $main-c : rgb(245, 244, 244);
         overflow : auto ;
         font-size: 30px;
         overflow : auto ;
-      }
-      &__spend{
-        height: calc(100vh - 400px);
-        width: 45%;
-        background-color: $main-c;
-        font-size: 30px;
-        overflow : auto ;
+        .main-font{
+          border-left: solid 2px grey;
+          border-bottom: solid 1px grey;
+          padding-left: 5px;
+        }
       }
       .content{
         font-size: 24px;
