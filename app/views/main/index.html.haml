@@ -28,7 +28,7 @@
     .main__main__show
       .main__main__show__income
         .main-font 収入
-        .cost-font 変動費 
+        .cost-font 臨時収入
         .cost-sum #{@income_variable.to_s(:delimited, delimiter: ',')}
         %br/
         - @incomes.each do |income|
@@ -40,7 +40,7 @@
         = link_to @income_cost.to_s(:delimited, delimiter: ','), "/main/show", class:"content cost"
       .main__main__show__income
         .main-font 支出
-        .cost-font 変動費 
+        .cost-font 変動費
         .cost-sum #{@spend_variable.to_s(:delimited, delimiter: ',')}
         %br/
         - @spends.each do |spend|
